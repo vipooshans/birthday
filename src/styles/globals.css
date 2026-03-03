@@ -1,0 +1,541 @@
+:root {
+  /* "girls theme" (pink/purple glow) */
+  --bg: #0b0714;
+  --card: rgba(255,255,255,0.07);
+  --border: rgba(255,255,255,0.14);
+  --text: rgba(255,255,255,0.94);
+  --muted: rgba(255,255,255,0.74);
+  --accent: #ff5fa2;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto; }
+body { background:
+                 radial-gradient(1200px 700px at 18% 10%, rgba(255, 95, 162, 0.22), transparent 55%),
+                 radial-gradient(900px 600px at 78% 28%, rgba(190, 105, 255, 0.16), transparent 55%),
+                 radial-gradient(900px 600px at 70% 82%, rgba(255, 209, 102, 0.10), transparent 60%),
+                 var(--bg);
+       color: var(--text);
+}
+
+a { color: inherit; text-decoration: none; }
+.container { width: min(1100px, 92%); margin: 0 auto; }
+.section { padding: 72px 0; }
+.h2 { font-size: 28px; margin: 0 0 18px; }
+.p { color: var(--muted); margin: 0; line-height: 1.6; }
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 16px;
+  backdrop-filter: blur(10px);
+}
+
+.grid { display: grid; gap: 14px; }
+.btn {
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.06);
+  color: var(--text);
+  padding: 10px 14px;
+  border-radius: 14px;
+  cursor: pointer;
+}
+.btn:hover { border-color: rgba(255,255,255,0.25); }
+.badge {
+  display: inline-flex;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.06);
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* Welcome to 22 */
+@keyframes welcomeShine {
+  0% { transform: translateX(-120%) skewX(-18deg); opacity: 0; }
+  20% { opacity: 0.9; }
+  100% { transform: translateX(120%) skewX(-18deg); opacity: 0; }
+}
+
+.welcome22 {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.16);
+  background: linear-gradient(90deg, rgba(255, 95, 162, 0.22), rgba(190, 105, 255, 0.18));
+  color: rgba(255,255,255,0.92);
+  font-weight: 900;
+  letter-spacing: 0.2px;
+  position: relative;
+  overflow: hidden;
+  width: fit-content;
+}
+
+.welcome22::after {
+  content: "";
+  position: absolute;
+  top: -40%;
+  left: -40%;
+  width: 60%;
+  height: 180%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.55), transparent);
+  animation: welcomeShine 2.6s ease-in-out infinite;
+}
+
+.welcome22Num {
+  color: white;
+  text-shadow: 0 0 20px rgba(255, 95, 162, 0.35);
+  font-size: 18px;
+}
+
+/* Spotify-ish playlist */
+.spotifyWrap {
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(0,0,0,0.18);
+}
+
+.spotifyHeader {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 14px;
+  padding: 16px;
+  align-items: center;
+  background:
+    linear-gradient(180deg, rgba(0,0,0,0.10), rgba(0,0,0,0.35)),
+    radial-gradient(900px 380px at 30% 0%, rgba(255, 95, 162, 0.28), transparent 60%),
+    radial-gradient(900px 380px at 70% 30%, rgba(190, 105, 255, 0.22), transparent 62%);
+}
+
+.spotifyCover {
+  width: 120px;
+  height: 120px;
+  border-radius: 14px;
+  background-position: center;
+  background-size: cover;
+  border: 1px solid rgba(255,255,255,0.14);
+  box-shadow: 0 18px 55px rgba(0,0,0,0.45);
+}
+
+.spotifyTitle {
+  font-weight: 950;
+  font-size: 22px;
+  letter-spacing: 0.2px;
+}
+
+.spotifyMeta {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.spotifyTable {
+  padding: 8px 8px 0;
+}
+
+.spotifyRow {
+  display: grid;
+  grid-template-columns: 42px 1fr 180px 64px;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 12px;
+  border-radius: 12px;
+}
+
+.spotifyHead {
+  color: rgba(255,255,255,0.55);
+  font-size: 12px;
+  letter-spacing: 0.2px;
+  text-transform: uppercase;
+}
+
+.spotifyItem {
+  width: 100%;
+  text-align: left;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.spotifyItem:hover {
+  background: rgba(255,255,255,0.06);
+}
+
+.spotifyItem.isActive {
+  background: rgba(255, 95, 162, 0.12);
+  border: 1px solid rgba(255, 95, 162, 0.22);
+}
+
+.spotifyIndex {
+  color: rgba(255,255,255,0.70);
+  font-weight: 800;
+}
+
+.spotifyTitleCell {
+  min-width: 0;
+}
+
+.spotifyTrackTitle {
+  font-weight: 900;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.spotifyTrackSub {
+  margin-top: 4px;
+  color: rgba(255,255,255,0.62);
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.spotifyArtist {
+  color: rgba(255,255,255,0.70);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.spotifyDur {
+  color: rgba(255,255,255,0.60);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.spotifyPlayer {
+  margin-top: 10px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  padding: 12px 14px;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 0.6fr;
+  gap: 12px;
+  align-items: center;
+  background: rgba(0,0,0,0.25);
+}
+
+.spotifyNow {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 10px;
+  align-items: center;
+  min-width: 0;
+}
+
+.spotifyNowCover {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background-position: center;
+  background-size: cover;
+  border: 1px solid rgba(255,255,255,0.14);
+}
+
+.spotifyNowTitle {
+  font-weight: 900;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.spotifyNowArtist {
+  margin-top: 3px;
+  color: rgba(255,255,255,0.65);
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.spotifyControls {
+  min-width: 0;
+}
+
+.spotifyBtns {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.spotifyIconBtn {
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.06);
+  color: var(--text);
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.spotifyPlayBtn {
+  border: 1px solid rgba(255,255,255,0.18);
+  background: linear-gradient(180deg, rgba(255,95,162,0.38), rgba(190,105,255,0.26));
+  color: white;
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 900;
+}
+
+.spotifyProg {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: 46px 1fr 46px;
+  gap: 10px;
+  align-items: center;
+}
+
+.spotifyTime {
+  color: rgba(255,255,255,0.60);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.spotifyBar {
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.10);
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.spotifyBarFill {
+  height: 100%;
+  background: linear-gradient(90deg, rgba(255,95,162,0.95), rgba(190,105,255,0.95));
+  width: 0%;
+}
+
+.spotifyVol {
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  gap: 8px;
+  align-items: center;
+  justify-items: end;
+}
+
+.spotifyVolIcon {
+  color: rgba(255,255,255,0.70);
+}
+
+.spotifyVolRange {
+  width: 100%;
+  accent-color: var(--accent);
+}
+
+@media (max-width: 900px) {
+  .spotifyRow { grid-template-columns: 42px 1fr 90px 64px; }
+  .spotifyPlayer { grid-template-columns: 1fr; }
+  .spotifyVol { justify-items: start; }
+}
+
+@media (max-width: 600px) {
+  .spotifyHideSm { display: none; }
+  .spotifyRow { grid-template-columns: 42px 1fr 64px; }
+  .spotifyHead { grid-template-columns: 42px 1fr 64px; }
+}
+hr.sep {
+  border: 0;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  margin: 0;
+}
+
+/* extra animations */
+@keyframes floaty {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes glowPulse {
+  0% { box-shadow: 0 0 0 rgba(255, 209, 102, 0.0); }
+  50% { box-shadow: 0 0 40px rgba(255, 209, 102, 0.14); }
+  100% { box-shadow: 0 0 0 rgba(255, 209, 102, 0.0); }
+}
+
+.floaty { animation: floaty 4s ease-in-out infinite; }
+.glowPulse { animation: glowPulse 3.5s ease-in-out infinite; }
+
+@keyframes balloonDrop {
+  0% { transform: translate3d(0, -120px, 0); opacity: 0; }
+  8% { opacity: 0.95; }
+  100% { transform: translate3d(0, 120vh, 0); opacity: 0.0; }
+}
+
+@keyframes balloonSway {
+  0% { margin-left: 0px; }
+  25% { margin-left: 10px; }
+  50% { margin-left: -8px; }
+  75% { margin-left: 12px; }
+  100% { margin-left: 0px; }
+}
+
+.balloonLayer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.balloon {
+  position: absolute;
+  top: 0;
+  filter: drop-shadow(0 10px 16px rgba(0,0,0,0.35));
+  will-change: transform;
+  animation-name: balloonDrop, balloonSway;
+  animation-timing-function: linear, ease-in-out;
+  animation-iteration-count: infinite, infinite;
+  animation-duration: var(--balloonDur, 10s), 2.8s;
+}
+
+/* Cake + Wish Modal */
+.cakeArea {
+  display: grid;
+  gap: 10px;
+  justify-items: start;
+}
+
+.cakeHint {
+  font-size: 13px;
+  color: rgba(255,255,255,0.70);
+}
+
+.cakeStage {
+  position: relative;
+  width: 190px;
+  height: 120px;
+}
+
+.cakeEmoji {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  font-size: 86px;
+  filter: drop-shadow(0 18px 34px rgba(0,0,0,0.45));
+}
+
+.candleBtn {
+  position: absolute;
+  left: 50%;
+  bottom: 78px;
+  transform: translateX(-50%);
+  width: 54px;
+  height: 54px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.16);
+  background: rgba(255,255,255,0.06);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  padding: 0;
+}
+
+.candleBtn:hover {
+  border-color: rgba(255,255,255,0.28);
+}
+
+.candleStick {
+  width: 10px;
+  height: 22px;
+  border-radius: 7px;
+  background: linear-gradient(#ffd166, #ff7a59);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.30);
+}
+
+@keyframes flameFlicker {
+  0% { transform: translateY(0) rotate(-6deg) scale(1); opacity: 0.95; }
+  40% { transform: translateY(-2px) rotate(8deg) scale(1.06); opacity: 1; }
+  70% { transform: translateY(1px) rotate(-4deg) scale(0.98); opacity: 0.92; }
+  100% { transform: translateY(0) rotate(-6deg) scale(1); opacity: 0.95; }
+}
+
+.candleFlame {
+  position: absolute;
+  top: 8px;
+  width: 12px;
+  height: 16px;
+  border-radius: 999px 999px 999px 999px;
+  background: radial-gradient(circle at 35% 35%, #fff6c7 0%, #ffd166 35%, #ff7a59 68%, rgba(255,122,89,0.15) 100%);
+  filter: drop-shadow(0 0 14px rgba(255, 209, 102, 0.55));
+  animation: flameFlicker 0.9s ease-in-out infinite;
+}
+
+.wishOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(10px);
+  display: grid;
+  place-items: center;
+  z-index: 2000;
+  padding: 18px;
+}
+
+.wishCard {
+  width: min(520px, 96vw);
+  border-radius: 18px;
+}
+
+.wishTopRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+@media (max-width: 520px) {
+  .cakeStage { width: 170px; height: 110px; }
+  .cakeEmoji { font-size: 78px; }
+  .candleBtn { bottom: 72px; }
+}
+
+/* Hero */
+.heroGrid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+}
+
+.heroProfilePanel {
+  min-height: 320px;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(600px 420px at 30% 20%, rgba(255, 209, 102, 0.20), transparent 55%),
+    radial-gradient(520px 360px at 70% 70%, rgba(111, 223, 255, 0.14), transparent 60%),
+    rgba(255,255,255,0.02);
+  border-left: 1px solid rgba(255,255,255,0.08);
+}
+
+.heroProfileImg {
+  width: 210px;
+  height: 210px;
+  border-radius: 999px;
+  object-fit: cover;
+  border: 1px solid rgba(255,255,255,0.18);
+  box-shadow:
+    0 18px 55px rgba(0,0,0,0.45),
+    0 0 0 10px rgba(255, 209, 102, 0.08);
+}
+
+@media (max-width: 900px) {
+  .heroGrid { grid-template-columns: 1fr; }
+  .heroProfilePanel {
+    min-height: 240px;
+    border-left: 0;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .heroProfileImg { width: 180px; height: 180px; }
+}
