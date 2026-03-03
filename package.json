@@ -20,4 +20,7 @@
     "@vitejs/plugin-react": "^4.3.1",
     "vite": "^5.4.0"
   }
+  "scripts": {
+  "build": "node node_modules/vite/bin/vite.js build"
+}
 }
